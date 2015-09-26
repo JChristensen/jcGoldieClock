@@ -1,5 +1,5 @@
 # Goldie Clock Firmware #
-https://github.com/JChristensen/jcGoldieClock
+https://github.com/JChristensen/jcGoldieClock  
 ReadMe file  
 Jack Christensen Sep 2015
 
