@@ -58,7 +58,7 @@ void GoldieClock::begin(void)
     printDateTime(local);
     Serial << tcr -> abbrev << endl;
 
-    rainbowCycle(2, 2);                         //power-up eye candy
+//    rainbowCycle(2, 2);                         //power-up eye candy
     clear();                                    //turn all the NeoPixels off at power up
     show();
 }
