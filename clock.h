@@ -55,7 +55,8 @@ const uint8_t monthDays[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 class GoldieClock : public Adafruit_NeoPixel
 {
 public:
-    GoldieClock(uint16_t nPixel, uint8_t pin, uint8_t type=NEO_GRB + NEO_KHZ800);
+    GoldieClock(uint16_t nPixel, uint8_t pin, uint8_t type=NEO_GRB + NEO_KHZ800)
+        : Adafruit_NeoPixel(nPixel, pin, type) {}
     void begin(void);
     void run(time_t utc);
 

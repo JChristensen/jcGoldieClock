@@ -27,12 +27,6 @@ uint8_t tzIndex;                    //index to the timezones[] array and the tzN
 EEMEM uint8_t ee_tzIndex;           //copy persisted in EEPROM
 TimeChangeRule* tcr;                //pointer to the time change rule, use to get TZ abbrev
 
-//constructor
-GoldieClock::GoldieClock(uint16_t nPixel, uint8_t pin, uint8_t type) :
-Adafruit_NeoPixel(nPixel, pin, type)
-{
-}
-
 //initialize
 void GoldieClock::begin(void)
 {
