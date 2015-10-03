@@ -34,6 +34,11 @@
 //setting will be lost, but if the time zone was changed and then SET is pressed again to advance
 //to year setting, the time zone change *will* take effect. This allows the time zone to be changed
 //without affecting the date and time.
+//
+//Rainbow "chimes" occur on the quarter hour. Rainbows are on by default after power up.
+//Rainbows can be turned off by pressing and releasing the INCREMENT button when the clock
+//is not in set mode. The display will go blank for a second to indicate rainbows are off,
+//or will display a rainbow to show rainbows are on.
 
 #include <Adafruit_NeoPixel.h>    //http://github.com/adafruit/Adafruit_NeoPixel
 #include <Button.h>               //http://github.com/JChristensen/Button

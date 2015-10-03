@@ -56,7 +56,7 @@ class GoldieClock : public Adafruit_NeoPixel
 {
 public:
     GoldieClock(uint16_t nPixel, uint8_t pin, uint8_t type=NEO_GRB + NEO_KHZ800)
-        : Adafruit_NeoPixel(nPixel, pin, type) {}
+        : Adafruit_NeoPixel(nPixel, pin, type), _showRainbows(true) {}
     void begin(void);
     void run(time_t utc);
 
@@ -66,6 +66,7 @@ private:
     void displayClock(time_t utc);
     void rainbowCycle(uint8_t wait, uint8_t repeatNumber);
     uint32_t wheel(byte WheelPos);
+    bool _showRainbows;
 };
 
 /*---- helper function prototypes ----*/

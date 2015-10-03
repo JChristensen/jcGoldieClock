@@ -72,6 +72,19 @@ void GoldieClock::run(time_t utc)
         {
             CLOCK_STATE = SET_CLOCK;
         }
+        else if ( btnIncr.wasReleased() )      //toggle the quarter-hour rainbows
+        {
+            if ( _showRainbows = !_showRainbows )
+            {
+                rainbowCycle(2, 1);            //show a rainbow if rainbow mode is on
+            }
+            else
+            {
+                clear();                       //else just blank the display for a second
+                show();
+                delay(1000);
+            }
+        }
         else
         {
             displayClock(utc);
@@ -319,7 +332,7 @@ void GoldieClock::displayClock(time_t utc)
         hourHand = hourHand + m / 12;      //adjust hour hand between hours
 
         //one rainbow on the quarter hour, two on the half, four on the hour
-        if ( s == 0 )
+        if ( s == 0  && _showRainbows )
         {
             if ( m == 15 || m == 45 ) rainbowCycle(2, 1);
             else if ( m == 30 ) rainbowCycle(2, 2);
