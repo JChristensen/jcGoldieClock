@@ -23,7 +23,7 @@ enum setStates_t { SET_INIT, SET_TZ, SET_YEAR, SET_MON, SET_DAY, SET_HOUR, SET_M
 const uint32_t SECOND_HAND(0x001800);
 const uint32_t MINUTE_HAND(0x000046);
 const uint32_t HOUR_HAND(0x500000);
-const uint32_t HOUR_HAND_DIM(0x1A0000);
+const uint32_t HOUR_HAND_DIM(0x0A0000);
 const uint32_t HOUR_MARKER(0x060300);    //hour markers for clock mode
 const uint32_t SET_MARKER(0x060003);     //hour markers for set mode
 
