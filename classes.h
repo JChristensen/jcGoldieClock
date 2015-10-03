@@ -6,9 +6,8 @@
 class heartbeat
 {
 public:
-    heartbeat(uint8_t pin, uint32_t interval) :
-    _pin(pin), _interval(interval), _state(true) {
-    }
+    heartbeat(uint8_t pin, uint32_t interval)
+        : _pin(pin), _interval(interval), _state(true) {}
     void begin(void);
     void update(void);
 
