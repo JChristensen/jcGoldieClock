@@ -2,8 +2,8 @@
 #include "clock.h"
 
 //object instantiations
-Button btnSet(INCR_SWITCH_PIN, PULLUP, INVERT, DEBOUNCE_MS);
-Button btnIncr(SET_SWITCH_PIN, PULLUP, INVERT, DEBOUNCE_MS);
+Button btnSet(INCR_SWITCH_PIN, DEBOUNCE_MS);
+Button btnIncr(SET_SWITCH_PIN, DEBOUNCE_MS);
 
 //time zones
 TimeChangeRule EDT = { "EDT", Second, Sun, Mar, 2, -240 };    //Daylight time = UTC - 4 hours
@@ -30,6 +30,8 @@ TimeChangeRule* tcr;                //pointer to the time change rule, use to ge
 //initialize
 void GoldieClock::begin(void)
 {
+    btnSet.begin();
+    btnIncr.begin();
     Adafruit_NeoPixel::begin();
 
     //get the time zone index from eeprom and ensure that it's valid

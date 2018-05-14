@@ -41,7 +41,7 @@
 //or will display a rainbow to show rainbows are on.
 
 #include <Adafruit_NeoPixel.h>    //http://github.com/adafruit/Adafruit_NeoPixel
-#include <Button.h>               //http://github.com/JChristensen/Button
+#include <JC_Button.h>            //http://github.com/JChristensen/JC_Button
 #include <DS3232RTC.h>            //http://github.com/JChristensen/DS3232RTC
 #include <Streaming.h>            //http://arduiniana.org/libraries/streaming/
 #include <Time.h>                 //http://playground.arduino.cc/Code/Time

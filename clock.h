@@ -3,7 +3,7 @@
 #define _CLOCK_H
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>    //http://github.com/adafruit/Adafruit_NeoPixel
-#include <Button.h>               //http://github.com/JChristensen/Button
+#include <JC_Button.h>            //http://github.com/JChristensen/JC_Button
 #include <DS3232RTC.h>            //http://github.com/JChristensen/DS3232RTC
 #include <Streaming.h>            //http://arduiniana.org/libraries/streaming/
 #include <Time.h>                 //http://playground.arduino.cc/Code/Time
@@ -14,6 +14,8 @@
 //The Goldie Clock has 60 NeoPixels.
 //Looking at the clock, Pixel 0 is the first pixel CCW from the 12:00 position.
 //Pixel 14 is at 9:00, Pixel 29 is at 6:00, Pixel 44 is at 3:00, Pixel 59 is at 12:00.
+//Physical pixel number = (59 - Logical pixel number)
+//Where logical pixel 0 is at 12:00, 15 is at 3:00, 30 is at 6:00, 45 is at 9:00.
 
 //states for the state machines
 enum clockStates_t { RUN_CLOCK, SET_CLOCK };
@@ -39,8 +41,6 @@ const uint32_t WHITE(0x323232);
 //other constants
 extern const uint8_t SET_SWITCH_PIN;  //defined in main module
 extern const uint8_t INCR_SWITCH_PIN; //defined in main module
-const bool PULLUP(true);              //for button objects
-const bool INVERT(true);              //for button objects
 const uint32_t DEBOUNCE_MS(25);       //debounce time in ms for button objects
 const uint32_t REPEAT_FIRST(500);     //ms required before repeating on long press
 const uint32_t REPEAT_INCR(150);      //repeat interval for long press
