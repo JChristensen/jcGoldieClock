@@ -70,7 +70,7 @@ const uint16_t N_PIXEL(60);           //number of pixels
 GoldieClock clock(N_PIXEL, NEO_PIXEL_PIN);
 heartbeat hbLED(HB_LED_PIN, 1000);
 
-void setup(void)
+void setup()
 {
     //enable pullups on unused pins for noise immunity
     for ( uint8_t i=0; i<sizeof(UNUSED_PINS); ++i )
@@ -89,7 +89,7 @@ void setup(void)
     hbLED.begin();
 }
 
-void loop(void)
+void loop()
 {
     clock.run( getUTC() );
     hbLED.update();                             //(blink 'em if ya got 'em)

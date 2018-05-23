@@ -41,7 +41,6 @@ const uint32_t WHITE(0x323232);
 //other constants
 extern const uint8_t SET_SWITCH_PIN;  //defined in main module
 extern const uint8_t INCR_SWITCH_PIN; //defined in main module
-const uint32_t DEBOUNCE_MS(25);       //debounce time in ms for button objects
 const uint32_t REPEAT_FIRST(500);     //ms required before repeating on long press
 const uint32_t REPEAT_INCR(150);      //repeat interval for long press
 const uint32_t SET_TIMEOUT(120000);   //ms in set mode with no input reverts to clock mode
@@ -57,11 +56,11 @@ class GoldieClock : public Adafruit_NeoPixel
 public:
     GoldieClock(uint16_t nPixel, uint8_t pin, uint8_t type=NEO_GRB + NEO_KHZ800)
         : Adafruit_NeoPixel(nPixel, pin, type), _showRainbows(true) {}
-    void begin(void);
+    void begin();
     void run(time_t utc);
 
 private:
-    bool setClock(void);
+    bool setClock();
     void displaySet(uint16_t pixel, uint32_t color);
     void displayClock(time_t utc);
     void rainbowCycle(uint8_t wait, uint8_t repeatNumber);
@@ -70,7 +69,7 @@ private:
 };
 
 /*---- helper function prototypes ----*/
-time_t getUTC(void);
+time_t getUTC();
 void setUTC(time_t utc);
 void printDateTime(time_t t);
 void printTime(time_t t);

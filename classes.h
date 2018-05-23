@@ -8,8 +8,8 @@ class heartbeat
 public:
     heartbeat(uint8_t pin, uint32_t interval)
         : _pin(pin), _interval(interval), _state(true) {}
-    void begin(void);
-    void update(void);
+    void begin();
+    void update();
 
 private:
     uint8_t _pin;
@@ -18,14 +18,14 @@ private:
     bool _state;
 };
 
-void heartbeat::begin(void)
+void heartbeat::begin()
 {
     pinMode(_pin, OUTPUT);
     digitalWrite(_pin, _state);
     _lastHB = millis();
 }
 
-void heartbeat::update(void)
+void heartbeat::update()
 {
     if ( millis() - _lastHB >= _interval )
     {

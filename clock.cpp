@@ -2,8 +2,8 @@
 #include "clock.h"
 
 //object instantiations
-Button btnSet(INCR_SWITCH_PIN, DEBOUNCE_MS);
-Button btnIncr(SET_SWITCH_PIN, DEBOUNCE_MS);
+Button btnSet(INCR_SWITCH_PIN);
+Button btnIncr(SET_SWITCH_PIN);
 
 //time zones
 TimeChangeRule EDT = { "EDT", Second, Sun, Mar, 2, -240 };    //Daylight time = UTC - 4 hours
@@ -28,7 +28,7 @@ EEMEM uint8_t ee_tzIndex;           //copy persisted in EEPROM
 TimeChangeRule* tcr;                //pointer to the time change rule, use to get TZ abbrev
 
 //initialize
-void GoldieClock::begin(void)
+void GoldieClock::begin()
 {
     btnSet.begin();
     btnIncr.begin();
@@ -76,7 +76,7 @@ void GoldieClock::run(time_t utc)
         }
         else if ( btnIncr.wasReleased() )      //toggle the quarter-hour rainbows
         {
-            if ( _showRainbows = !_showRainbows )
+            if ( (_showRainbows = !_showRainbows) )
             {
                 rainbowCycle(2, 1);            //show a rainbow if rainbow mode is on
             }
@@ -104,7 +104,7 @@ void GoldieClock::run(time_t utc)
 
 //run the time setting state machine. must be called frequently while in set mode.
 //returns true when setting is complete or has timed out.
-bool GoldieClock::setClock(void)
+bool GoldieClock::setClock()
 {
     static setStates_t SET_STATE;
     static time_t utc, local;
@@ -408,7 +408,7 @@ uint32_t GoldieClock::wheel(byte WheelPos)
 volatile time_t isrUTC;                         //ISR's copy of current time in UTC
 
 //return current time
-time_t getUTC(void)
+time_t getUTC()
 {
     time_t utc;
 
